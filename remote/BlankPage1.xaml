@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="remote.BlankPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:remote"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
+        <Button Click="Button_Click" Content="Connect" VerticalAlignment="Top" Name="btn1"></Button>
+        <GridView ItemsSource="{x:Bind devices}" VerticalAlignment="Top" HorizontalAlignment="Right"
+                  IsItemClickEnabled="True" 
+                  ItemClick="GridView_ItemClick"
+                >
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                    <TextBlock Text="{Binding DisplayName}"></TextBlock>
+                        <TextBlock Text="{Binding Kind}"></TextBlock>
+
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        <Grid  Margin="0,50,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="64*"/>
+                <ColumnDefinition Width="61*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderThickness="1" BorderBrush="Blue" Background="AliceBlue">
+                <InkCanvas Name="ink1" />
+            </Border>
+
+            <Image Name="canvas1" Grid.Column="1"/>
+
+
+        </Grid>
+        </Grid>
+</Page>
